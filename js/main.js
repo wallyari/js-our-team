@@ -34,6 +34,7 @@ const team = [
 
 
 //*Recupero il contenitore delle CARD
+let cardContainer = document.getElementById('card');
 
 
 
@@ -41,5 +42,23 @@ const team = [
 for( let i = 0 ; i < team.length ; i++ ){
 
 
-    console.log(`Nome ${team[i].name} Ruolo ${team[i].role} img ${team[i].img}`)
+   //stampo in console nome| ruolo | img di tutti gli elementi del team
+console.log(`nome (${team[i].name}) ruolo (${team[i].role}) img (${team[i].img})`)
+
+   // creo un elemento div
+let card = document.createElement('div');
+card.classList.add('col-4');
+
+   // creo il contenuto HTML 
+card.innerHTML= 
+    ` <div class="card m-3">
+        <img src="./img/${team[i].img}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">${team[i].name} </h5>
+                    <p class="card-text">${team[i].role} </p>
+            </div>
+    </div> `
+                        ;
+   //aggiungo l'elemento creato
+cardContainer.append(card);
 };
